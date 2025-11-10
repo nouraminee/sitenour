@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nouramine</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 80px 20px 40px;
+      font-size: 3em;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #8a7efc;
+      text-shadow: 0 0 15px #8a7efc;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      color: #aaa;
+      margin-bottom: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .gallery img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #8a7efc;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 30px;
+      color: #777;
+      font-size: 0.9em;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>Nouramine</header>
+  <div class="subtitle">Welcome 😺</div>
+
+  <div class="gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvBEc2gJm-Dm70THnL-0q7q3LF5pIKa88QA&s" alt="Re:Zero 1" />
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgtXMe2xPgzQ5WxQm_TgKp19gqZaCQ5X0f0ZlGEBPPJbY7EGLz07PYJ7C4bg9J6gZ8jBDLdHz_obfgT6PSHVslzht5_scjU2O-QwZtTrqBWDcUNrKu4ikbpfFa3fZzlesPDsW1nT2goNkSBF_is0NntwMGz59GgieNq2mvwo5ZLuYC28uOsRazPYI4DvWU=w640-h360-rw" alt="Re:Zero 2" />
+    <img src="https://i.ytimg.com/vi/tupZmeL2bv0/maxresdefault.jpg" alt="Re:Zero 3" />
+    <img src="https://us.oricon-group.com/upimg/sns/3000/3414/img1200/ReZero-EP60%20(8).jpg" alt="Re:Zero 4" />
+    <img src="https://a.storyblok.com/f/178900/1920x1080/e5ddb21aae/re-zero-starting-life-in-another-world-3rd-season-ep-59-emilia-smiling.jpg/m/1200x0/filters:quality(95)format(webp)" alt="Re:Zero 5" />
+    <img src="https://preview.redd.it/discussion-im-currently-rewatching-re-zero-and-while-v0-ht9dflajkyzd1.jpeg?width=640&crop=smart&auto=webp&s=5f9b121883c8bd97b1b0b4039c5bf16328508979" alt="Re:Zero 6" />
+  </div>
+
+  <footer>© 2025 Nouramine - All rights reserved.</footer>
+
+  <script>
+    // تأثير ظهور الصور أثناء التمرير
+    const imgs = document.querySelectorAll('.gallery img');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.2});
+    imgs.forEach(img => observer.observe(img));
+  </script>
+</body>
+</html>
